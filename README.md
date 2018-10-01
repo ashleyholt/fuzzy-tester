@@ -2,16 +2,12 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/pelias/fuzzy-tester.svg)](https://greenkeeper.io/)
 
-This is the Pelias fuzzy tester library, used for running our
+This is the Pelias testing library, used for running our
 [acceptance-tests](https://github.com/pelias/acceptance-tests) and
 [fuzzy-tests](https://github.com/pelias/fuzzy-tests).
 
-What are fuzzy tests? See the original [problem statement](https://github.com/pelias/acceptance-tests/issues/109)
-that lead to the creation of this library.
-
-Most importantly, fuzzy tests deliver more than just a single bit of pass or fail for each test:
-they specify a total number of points (a score) for the test, and return how many points out of the
-maximum were achieved. The weighting of individual parts of the test can be adjusted.
+* acceptance-tests are used to identify improvements and regressions between various versions of the API and the underlying data; they are carefully curated and should nearly all be passing
+* fuzzy-tests are designed to incorporate a broader set of tests, including user-generated and passively collected test data; these tests focus on the pass percentage over time rather than individual failures 
 
 **Note:** fuzzy-tester requires NPM version 2 or greater. The NPM team
 [recommends](http://blog.npmjs.org/post/85484771375/how-to-install-npm) you update NPM using NPM
@@ -30,7 +26,7 @@ fuzzy-tester -t dev
 ## Command Line Parameters
 
 * `--help` show help :)
-* `-e` Select an envronment from `pelias.json` to run tests against. A list of valid environments will be printed if an invalid value or no value is passed
+* `-e` Select an environment from `pelias.json` to run tests against. A list of valid environments will be printed if an invalid value or no value is passed
 * `-o` Select an output mode. Valid values are `terminal` (default), `csv`, `json`, and `autocomplete` (see below)
 * `-q` Enable quiet mode. Only test failures (not successes) are printed
 * `-t` Select a test 'type' to filter on. This is a free-text value that can be added to each test, to allow running a subset of tests
